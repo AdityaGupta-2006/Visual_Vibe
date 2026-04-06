@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisualVibe Pro</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <i class="fas fa-camera-retro"></i>
+      <span class="logo-text">VisualVibe</span>
+    </a>
+    
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search high-resolution images..." onkeypress="handleSearch(event)">
+    </div>
+
+    <div class="controls-right">
+      <div class="sort-wrapper">
+        <i class="fas fa-sliders-h sort-icon"></i>
+        <select id="sortSelect" onchange="applySort()">
+          <option value="">Any Orientation</option>
+          <option value="landscape">Landscape</option>
+          <option value="portrait">Portrait</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="filter-container" id="filterContainer">
+    <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+    <button class="filter-btn" onclick="setFilter('animals', this)">Animals</button>
+    <button class="filter-btn" onclick="setFilter('car', this)">Cars</button>
+    <button class="filter-btn" onclick="setFilter('nature', this)">Nature</button>
+    <button class="filter-btn" onclick="setFilter('people', this)">Lifestyle</button>
+    <button class="filter-btn" onclick="setFilter('technology', this)">Tech</button>
+    <button class="filter-btn" onclick="setFilter('architecture', this)">Cities</button>
+    <button class="filter-btn" onclick="setFilter('abstract', this)">Abstract</button>
+  </div>
+
+  <div id="visualvibe-gallery" class="gallery-container"></div>
+
+  <div class="load-more-container">
+    <button class="load-more" onclick="loadMore()">Load More Vibes</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
