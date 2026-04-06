@@ -1,17 +1,13 @@
-// DOM Elements
 const gallery = document.getElementById('visualvibe-gallery');
 const searchInput = document.getElementById('searchInput');
 const sortSelect = document.getElementById('sortSelect');
 
-// API Configuration
 const PEXELS_KEY = 'BO6CWOeFvhiexGGhSdNmiEKphMRqXlFV4GnHuBLqFnZ6EtUTFVfQ1gOf';
 
-// State Management
 let currentCategory = 'all';
 let currentOrientation = ''; 
 let currentPage = 1;
 
-// --- Dark/Light Mode Logic ---
 function toggleTheme() {
   const body = document.documentElement;
   const icon = document.getElementById('themeIcon');
@@ -25,7 +21,6 @@ function toggleTheme() {
   }
 }
 
-// --- Search Logic ---
 function handleSearch(event) {
   if (event.key === 'Enter' && searchInput.value.trim() !== '') {
     currentCategory = searchInput.value.trim();
@@ -34,7 +29,6 @@ function handleSearch(event) {
   }
 }
 
-// --- Filter & Sort Logic ---
 function setFilter(category, btn) {
   currentCategory = category;
   searchInput.value = ''; 
@@ -56,7 +50,6 @@ function resetGallery() {
   initBoard();
 }
 
-// --- API Fetching Logic ---
 async function fetchPexelsBatch(query, count) {
   try {
     let apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=${count}&page=${currentPage}`;
@@ -76,7 +69,6 @@ async function fetchPexelsBatch(query, count) {
   }
 }
 
-// --- Interaction Logic ---
 function toggleLike(btnElement) {
   btnElement.classList.toggle('liked');
   const icon = btnElement.querySelector('i');
@@ -89,11 +81,10 @@ function toggleLike(btnElement) {
   }
 }
 
-// --- DOM Manipulation ---
 async function loadBatch(count) {
   let queryToUse = currentCategory;
   
-  // Mix it up if 'All' is selected
+
   if (currentCategory === 'all') {
     const categories = ['animals', 'nature', 'people', 'technology', 'architecture', 'car'];
     queryToUse = categories[Math.floor(Math.random() * categories.length)];
@@ -102,22 +93,20 @@ async function loadBatch(count) {
   const photos = await fetchPexelsBatch(queryToUse, count);
 
   photos.forEach(photo => {
-    // Build Card Container
+
     const card = document.createElement('div');
     card.className = 'image-card';
 
-    // Build Image
     const img = document.createElement('img');
     img.src = photo.src.large;
     img.className = 'feed-image';
     img.alt = photo.alt || 'VisualVibe Image';
     img.loading = "lazy";
 
-    // Build Hover Overlay
+
     const overlay = document.createElement('div');
     overlay.className = 'card-overlay';
     
-    // Top Section (Like Button)
     const topSection = document.createElement('div');
     topSection.className = 'interaction-top';
     topSection.innerHTML = `
@@ -126,7 +115,6 @@ async function loadBatch(count) {
       </button>
     `;
 
-    // Bottom Section (Photographer & View Link)
     const bottomSection = document.createElement('div');
     bottomSection.className = 'interaction-bottom';
     bottomSection.innerHTML = `
@@ -134,13 +122,12 @@ async function loadBatch(count) {
       <a href="${photo.url}" target="_blank" class="view-btn">View</a>
     `;
 
-    // Assemble Card
     overlay.appendChild(topSection);
     overlay.appendChild(bottomSection);
     card.appendChild(img);
     card.appendChild(overlay);
     
-    // Add to Gallery
+
     gallery.appendChild(card);
   });
 
@@ -148,12 +135,12 @@ async function loadBatch(count) {
 }
 
 function loadMore() {
-  loadBatch(12); // Load 12 new images
+  loadBatch(12); 
 }
 
 function initBoard() {
-  loadBatch(20); // Initial load is larger
+  loadBatch(20); 
 }
 
-// Start the application
+
 initBoard();
