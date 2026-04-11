@@ -13,7 +13,7 @@
 <hr>
 
 <h2>📌 Project Overview</h2>
-<p>VisualVibe is a dynamic, Pinterest-inspired image discovery web application designed to deliver a seamless and highly visual user experience. The core objective of this project is to build an interactive frontend interface that fetches and displays real-time data from a public API (Pixabay). By strictly utilizing JavaScript Array Higher-Order Functions (HOFs) such as <code>.filter()</code>, <code>.sort()</code>, and <code>.includes()</code>, the application allows users to search, categorize, and sort high-resolution imagery without relying on traditional loops. This project demonstrates a strong understanding of asynchronous JavaScript, DOM manipulation, and responsive UI design.</p>
+<p>VisualVibe is a dynamic, Pinterest-inspired image discovery web application designed to deliver a seamless and highly visual user experience. The core objective of this project is to build an interactive frontend interface that fetches and displays real-time data from a public API (Pexels). By strictly utilizing JavaScript Array Higher-Order Functions (HOFs) such as <code>.filter()</code>, <code>.sort()</code>, and <code>.includes()</code>, the application allows users to search, categorize, and sort high-resolution imagery without relying on traditional loops. This project demonstrates a strong understanding of asynchronous JavaScript, DOM manipulation, and responsive UI design.</p>
 
 <h2>⚙️ API Integration & Technical Requirements</h2>
 <ul>
