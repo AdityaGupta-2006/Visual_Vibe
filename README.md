@@ -17,7 +17,7 @@
 
 <h2>⚙️ API Integration & Technical Requirements</h2>
 <ul>
-  <li><strong>API Provider:</strong> <a href="https://pixabay.com/api/docs/">Pixabay REST API</a></li>
+  <li><strong>API Provider:</strong> <a href="https://www.pexels.com/">Pexels API</a></li>
   <li><strong>Data Handled:</strong> High-resolution image URLs, categorization tags, and user engagement metrics (views, likes).</li>
   <li><strong>Data Fetching:</strong> Implemented using the modern JavaScript <code>fetch()</code> API with robust error handling for loading states and failed requests.</li>
   <li><strong>Logic Constraints:</strong> Strict adherence to Array Higher-Order Functions. <em>No traditional <code>for</code> or <code>while</code> loops are used for data manipulation.</em></li>
